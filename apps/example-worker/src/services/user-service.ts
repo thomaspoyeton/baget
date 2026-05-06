@@ -3,10 +3,14 @@ import { Injectable } from "@baget/core";
 @Injectable()
 export class UserService {
 	async getUsers() {
-		return { message: "users fetched (worker)" };
+		return { message: "users fetched" };
 	}
 
 	async createUser() {
-		return { message: "user created (worker)" };
+		return { message: "user created" };
+	}
+
+	async getUser(id: string) {
+		return { id, message: `user ${id} fetched` };
 	}
 }

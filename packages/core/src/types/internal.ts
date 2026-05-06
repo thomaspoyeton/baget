@@ -36,11 +36,43 @@ export interface RouteMetadata {
 	schema?: RouteSchemaInput;
 }
 
+export type ParamSource =
+	| "params"
+	| "query"
+	| "body"
+	| "headers"
+	| "context";
+
+export type ParamBinding =
+	| { source: "params"; name: string }
+	| { source: "query"; name?: string }
+	| { source: "body"; name?: string }
+	| { source: "headers"; name?: string }
+	| { source: "context" };
+
+export type MethodParamsMap = Record<string, ParamBinding[]>;
+
+export const registerParamBinding = (
+	target: object,
+	propertyKey: string | symbol,
+	parameterIndex: number,
+	binding: ParamBinding,
+): void => {
+	const ctor = (target as object).constructor as object;
+	const methodKey = String(propertyKey);
+	const map = { ...(getMeta(METADATA_KEYS.METHOD_PARAMS, ctor) ?? {}) };
+	const list: ParamBinding[] = [...(map[methodKey] ?? [])];
+	list[parameterIndex] = binding;
+	map[methodKey] = list;
+	setMeta(METADATA_KEYS.METHOD_PARAMS, map, ctor);
+};
+
 type MetadataPayloads = {
 	[METADATA_KEYS.CONTROLLER]: string;
 	[METADATA_KEYS.INJECTABLE]: true;
 	[METADATA_KEYS.ROUTES]: RouteMetadata[];
 	[METADATA_KEYS.INJECT]: Token[];
+	[METADATA_KEYS.METHOD_PARAMS]: MethodParamsMap;
 };
 
 export const getMeta = <K extends MetadataKey>(

@@ -9,4 +9,8 @@ export class UserService {
 	async createUser() {
 		return { message: "user created" };
 	}
+
+	async getUser(id: string) {
+		return { id, message: `user ${id} fetched` };
+	}
 }
