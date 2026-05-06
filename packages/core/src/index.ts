@@ -151,7 +151,7 @@ export {
 } from "./decorators/methods";
 export { Param } from "./decorators/param";
 export { Query } from "./decorators/query";
-export { defaultOven, Oven } from "./di/container";
+export { defaultOven, Oven, type ProviderFactory } from "./di/container";
 export type { BagetInference } from "./types/inference";
 export type {
 	Constructor,

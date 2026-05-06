@@ -1,12 +1,30 @@
 import { METADATA_KEYS } from "../constants";
 import { type Constructor, getMeta, type Token } from "../types/internal";
 
+export type ProviderFactory<T> = (oven: Oven) => T;
+
 export class Oven {
 	private instances = new Map<Token, unknown>();
+	private factories = new Map<Token, ProviderFactory<unknown>>();
+
+	provide<T>(token: Token<T>, instance: T): void {
+		this.instances.set(token, instance);
+	}
+
+	factory<T>(token: Token<T>, factory: ProviderFactory<T>): void {
+		this.factories.set(token, factory as ProviderFactory<unknown>);
+	}
 
 	resolve<T extends object>(target: Constructor<T>): T {
 		const cached = this.instances.get(target);
 		if (cached !== undefined) return cached as T;
+
+		const factory = this.factories.get(target);
+		if (factory) {
+			const instance = factory(this) as T;
+			this.instances.set(target, instance);
+			return instance;
+		}
 
 		this.assertInjectable(target);
 
