@@ -36,12 +36,7 @@ export interface RouteMetadata {
 	schema?: RouteSchemaInput;
 }
 
-export type ParamSource =
-	| "params"
-	| "query"
-	| "body"
-	| "headers"
-	| "context";
+export type ParamSource = "params" | "query" | "body" | "headers" | "context";
 
 export type ParamBinding =
 	| { source: "params"; name: string }
