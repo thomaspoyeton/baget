@@ -1,6 +1,6 @@
 {
-  "name": "my-turborepo",
-  "description": "A barebones Turborepo example for working with Task Graphs.",
+  "name": "baget",
+  "description": "baget is a framework for building clean, maintainable, and scalable APIs.",
   "private": true,
   "devDependencies": {
     "turbo": "^2.9.9"

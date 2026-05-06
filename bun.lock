@@ -8,34 +8,6 @@
         "turbo": "^2.9.9",
       },
     },
-    "apps/app-a": {
-      "name": "app-a",
-      "dependencies": {
-        "pkg-a": "*",
-        "tooling-config": "*",
-      },
-    },
-    "apps/app-b": {
-      "name": "app-b",
-      "dependencies": {
-        "tooling-config": "*",
-      },
-    },
-    "packages/pkg-a": {
-      "name": "pkg-a",
-      "dependencies": {
-        "tooling-config": "*",
-      },
-    },
-    "packages/pkg-b": {
-      "name": "pkg-b",
-      "dependencies": {
-        "tooling-config": "*",
-      },
-    },
-    "packages/tooling-config": {
-      "name": "tooling-config",
-    },
   },
   "packages": {
     "@turbo/darwin-64": ["@turbo/darwin-64@2.9.9", "", { "os": "darwin", "cpu": "x64" }, "sha512-hTEiNu2ABZZOO1qbjnKASI8eF3BdOOzU6iKv5w5uGOK65DDMc10cS40N1kqM99YT0uSAGUwNu6GdFctRPeEeVA=="],
@@ -49,16 +21,6 @@
     "@turbo/windows-64": ["@turbo/windows-64@2.9.9", "", { "os": "win32", "cpu": "x64" }, "sha512-vjDQycz4gQVvIq4n2rPtiiIESwJlAc406qtkiZlqyL+fHZEd9SxYNlBIFYtc5cuMuwrk+sIKrhN7XvwjmvS9YQ=="],
 
     "@turbo/windows-arm64": ["@turbo/windows-arm64@2.9.9", "", { "os": "win32", "cpu": "arm64" }, "sha512-V6NiH43oCctepbOdQFp7UjqLyK8p6Tt824QA+G4TE+B1BBHu80A0W8OCL+H7uBJ3XZjAj/hvPDw3k3l65DoDGw=="],
-
-    "app-a": ["app-a@workspace:apps/app-a"],
-
-    "app-b": ["app-b@workspace:apps/app-b"],
-
-    "pkg-a": ["pkg-a@workspace:packages/pkg-a"],
-
-    "pkg-b": ["pkg-b@workspace:packages/pkg-b"],
-
-    "tooling-config": ["tooling-config@workspace:packages/tooling-config"],
 
     "turbo": ["turbo@2.9.9", "", { "optionalDependencies": { "@turbo/darwin-64": "2.9.9", "@turbo/darwin-arm64": "2.9.9", "@turbo/linux-64": "2.9.9", "@turbo/linux-arm64": "2.9.9", "@turbo/windows-64": "2.9.9", "@turbo/windows-arm64": "2.9.9" }, "bin": { "turbo": "bin/turbo" } }, "sha512-3xfzXE/yTjhh0S5dIWlE+3E+J9A09REpLI1ZqVh2+HrNZoVzZn0pkvjiRgVK/Ev3PF9XnaTwCntTx+CADWXcyA=="],
   }
