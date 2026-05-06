@@ -1,0 +1,13 @@
+{
+  "name": "my-turborepo",
+  "description": "A barebones Turborepo example for working with Task Graphs.",
+  "private": true,
+  "devDependencies": {
+    "turbo": "^2.9.9"
+  },
+  "packageManager": "bun@1.3.13",
+  "workspaces": [
+    "apps/*",
+    "packages/*"
+  ]
+}
