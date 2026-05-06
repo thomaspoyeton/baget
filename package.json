@@ -1,13 +1,19 @@
 {
-  "name": "baget",
-  "description": "baget is a framework for building clean, maintainable, and scalable APIs.",
-  "private": true,
-  "devDependencies": {
-    "turbo": "^2.9.9"
-  },
-  "packageManager": "bun@1.3.13",
-  "workspaces": [
-    "apps/*",
-    "packages/*"
-  ]
+	"name": "baget",
+	"description": "baget is a framework for building clean, maintainable, and scalable APIs.",
+	"private": true,
+	"devDependencies": {
+		"@biomejs/biome": "2.4.14",
+		"turbo": "^2.9.9"
+	},
+	"packageManager": "bun@1.3.13",
+	"workspaces": [
+		"apps/*",
+		"packages/*"
+	],
+	"scripts": {
+		"dev": "turbo run dev",
+		"lint": "biome check .",
+		"lint:fix": "biome check --write ."
+	}
 }

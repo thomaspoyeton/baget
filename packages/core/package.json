@@ -1,0 +1,22 @@
+{
+	"name": "@baget/core",
+	"module": "src/index.ts",
+	"type": "module",
+	"exports": {
+		".": {
+			"types": "./src/index.ts",
+			"import": "./src/index.ts",
+			"default": "./src/index.ts"
+		}
+	},
+	"devDependencies": {
+		"@types/bun": "latest"
+	},
+	"peerDependencies": {
+		"typescript": "^5"
+	},
+	"dependencies": {
+		"elysia": "^1.4.28",
+		"reflect-metadata": "^0.2.2"
+	}
+}
